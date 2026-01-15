@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Wii aesthetic base styles */
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-wii-white to-wii-gray text-wii-dark;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica',
+      'Arial', sans-serif;
+  }
+}
+
+/* Utility classes for Wii elements */
+@layer components {
+  .wii-container {
+    @apply max-w-7xl mx-auto px-4 py-8;
+  }
+
+  .wii-card {
+    @apply bg-gradient-to-br from-wii-white to-wii-gray rounded-3xl border-4 border-wii-lightBlue shadow-wii-subtle p-6;
+  }
+
+  .wii-heading {
+    @apply text-4xl font-bold text-wii-dark;
+  }
+}
+
+/* Smooth cursor and animations */
+* {
+  cursor: default;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Prevent layout shift on hover */
+html {
+  scroll-behavior: smooth;
+}
