@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Code, Palette, Mail, Plus } from 'lucide-react'
 import { profile, devProjects, artWorks } from '@/lib/data'
-import { MiiHero, ArtGalleryModal, ChannelItem, BottomBar } from '@/components'
+import { MiiHero, ArtGalleryModal, ChannelItem, BottomBar, WiiDateTime, WiiMessageBoard, WiiDiscChannel, WiiSettings, WiiNewsChannel } from '@/components'
 
 /**
  * Home Page - Dual Portfolio Dashboard
@@ -38,6 +38,21 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-wii-white via-wii-gray to-wii-lightBlue/20">
+      {/* Top Header Bar - Wii Menu Style */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="sticky top-0 z-30 bg-gradient-to-b from-wii-white/95 to-wii-gray/95 backdrop-blur-sm border-b-2 border-wii-lightBlue/50"
+      >
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <WiiMessageBoard />
+            <WiiSettings />
+          </div>
+          <WiiDateTime />
+        </div>
+      </motion.div>
+
       {/* Decorative Wii menu background elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-10 right-10 w-40 h-40 bg-wii-blue/5 rounded-full blur-3xl" />
@@ -45,7 +60,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 p-6 md:p-8">
+      <div className="relative z-10 p-4 sm:p-6 md:p-8">
         <div className="max-w-6xl mx-auto">
           {/* Header with Mii Hero */}
           <motion.div
@@ -113,45 +128,50 @@ export default function Home() {
               </Link>
             </motion.div>
 
-            {/* Placeholder Tiles */}
-            {[
-              { label: 'Photo', id: 'photo' },
-              { label: 'Playlist', id: 'playlist' },
-              { label: 'Internet', id: 'internet' },
-              { label: 'More...', id: 'more' },
-            ].map((placeholder, idx) => (
-              <motion.div key={placeholder.id} custom={3 + idx} variants={itemVariants}>
-                <div
-                  className="
-                    bg-gradient-to-br
-                    from-wii-lightBlue/30
-                    to-wii-lightBlue/10
-                    aspect-video
-                    rounded-2xl
-                    border-4
-                    border-wii-lightBlue/30
-                    flex
-                    items-center
-                    justify-center
-                    cursor-pointer
-                    hover:shadow-lg
-                    hover:border-wii-lightBlue/50
-                    transition-all
-                    group
-                  "
-                >
-                  <div className="flex flex-col items-center gap-2">
-                    <Plus
-                      className="w-10 h-10 text-wii-dark/30 group-hover:text-wii-dark/50 transition-colors"
-                      strokeWidth={1.5}
-                    />
-                    <span className="text-xs font-bold text-wii-dark/30 group-hover:text-wii-dark/50 transition-colors">
-                      {placeholder.label}
-                    </span>
+            {/* Disc Channel - Resume/CV */}
+            <motion.div custom={3} variants={itemVariants} className="lg:col-span-1">
+              <WiiDiscChannel />
+            </motion.div>
+
+            {/* News Channel */}
+            <motion.div custom={4} variants={itemVariants} className="lg:col-span-1">
+              <WiiNewsChannel />
+            </motion.div>
+
+            {/* About Tile */}
+            <motion.div custom={5} variants={itemVariants}>
+              <Link href="/about" className="w-full block">
+                  <div
+                    className="
+                      bg-gradient-to-br
+                      from-wii-lightBlue/30
+                      to-wii-lightBlue/10
+                      aspect-video
+                      rounded-2xl
+                      border-4
+                      border-wii-lightBlue/30
+                      flex
+                      items-center
+                      justify-center
+                      cursor-pointer
+                      hover:shadow-lg
+                      hover:border-wii-lightBlue/50
+                      transition-all
+                      group
+                    "
+                  >
+                    <div className="flex flex-col items-center gap-2">
+                      <Plus
+                        className="w-10 h-10 text-wii-dark/30 group-hover:text-wii-dark/50 transition-colors"
+                        strokeWidth={1.5}
+                      />
+                      <span className="text-xs font-bold text-wii-dark/30 group-hover:text-wii-dark/50 transition-colors">
+                        About Me
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
-            ))}
           </motion.div>
 
           {/* Quick Stats */}

@@ -70,7 +70,7 @@ export default function AboutPage() {
         variants={contentVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 pb-32"
+        className="relative z-10 max-w-4xl mx-auto px-4 md:px-8 pb-24 md:pb-32"
       >
         <div
           className="

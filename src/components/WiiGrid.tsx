@@ -10,12 +10,6 @@ interface WiiGridProps {
   children: React.ReactNode
 
   /**
-   * Number of columns in the grid
-   * @default 4
-   */
-  columns?: number
-
-  /**
    * Custom gap between grid items
    * @default 'gap-6'
    */
@@ -41,7 +35,6 @@ interface WiiGridProps {
  */
 export const WiiGrid: React.FC<WiiGridProps> = ({
   children,
-  columns = 4,
   gap = 'gap-6',
   showBackground = true,
   bgGradient = 'from-wii-white to-wii-gray',
@@ -95,7 +88,8 @@ export const WiiGrid: React.FC<WiiGridProps> = ({
             grid
             grid-cols-1
             sm:grid-cols-2
-            lg:grid-cols-${columns}
+            md:grid-cols-3
+            lg:grid-cols-4
             ${gap}
             auto-rows-max
             lg:auto-rows-fr

@@ -92,7 +92,7 @@ export default function ProjectsPage() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-32"
+        className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 pb-24 md:pb-32"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {devProjects.map((project) => (

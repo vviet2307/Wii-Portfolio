@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { LucideIcon } from 'lucide-react'
+import { useWiiSounds } from '@/hooks/useWiiSounds'
 
 interface ChannelItemProps {
   /**
@@ -73,6 +74,8 @@ export const ChannelItem = React.forwardRef<HTMLDivElement, ChannelItemProps>(
     },
     ref
   ) => {
+    const { playClick, playHover } = useWiiSounds()
+
     // Motion variants for hover effects
     const containerVariants = {
       rest: {
@@ -118,6 +121,8 @@ export const ChannelItem = React.forwardRef<HTMLDivElement, ChannelItemProps>(
         variants={containerVariants}
         initial="rest"
         whileHover="hover"
+        onHoverStart={() => playHover()}
+        onTap={() => playClick()}
         className={`
           relative
           h-full

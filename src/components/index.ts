@@ -7,3 +7,12 @@ export { WiiGrid } from './WiiGrid'
 export { BottomBar } from './BottomBar'
 export { MiiHero } from './MiiHero'
 export { ArtGalleryModal } from './ArtGalleryModal'
+
+// Export new Wii-themed components
+export { WiiDateTime } from './WiiDateTime'
+export { WiiMessageBoard } from './WiiMessageBoard'
+export { WiiDiscChannel } from './WiiDiscChannel'
+export { WiiSettings } from './WiiSettings'
+export { WiiLoadingScreen } from './WiiLoadingScreen'
+export { WiiNewsChannel } from './WiiNewsChannel'
+
